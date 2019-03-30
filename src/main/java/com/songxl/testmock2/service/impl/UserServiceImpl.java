@@ -15,11 +15,12 @@ public class UserServiceImpl implements UserService {
         this.userDAO = userDAO;
     }
 
+    //使用spy多层调用测试
     @Override
     public String queryUserById(String id) {
         System.out.println("1.进入service层， 入参："+id);
         String userById = userDAO.getUserById(id);
-        System.out.println("3.调用dao返回值："+userById);
+        System.out.println("4.调用dao返回值："+userById);
         return userById;
     }
 

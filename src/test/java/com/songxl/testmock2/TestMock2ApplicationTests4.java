@@ -2,6 +2,7 @@ package com.songxl.testmock2;
 
 import com.songxl.testmock2.dao.UserDAO;
 import com.songxl.testmock2.dao.impl.UserDAOImpl;
+import com.songxl.testmock2.database.UserDataBase;
 import com.songxl.testmock2.service.UserService;
 import com.songxl.testmock2.service.impl.UserServiceImpl;
 import org.junit.Assert;
@@ -31,7 +32,10 @@ public class TestMock2ApplicationTests4 {
     UserService userService = new UserServiceImpl();
 
     @Spy
-    private UserDAO userDAO = new UserDAOImpl();
+    private UserDAOImpl userDAO = new UserDAOImpl();
+
+    @Mock
+    private UserDataBase userDataBase;
 
     /**
      * 此方法中没有加 when().thenReturn();
@@ -77,6 +81,14 @@ public class TestMock2ApplicationTests4 {
     public void test4() {
         when(userDAO.getUserById("songxl")).thenReturn("songxl");
         String id = userDAO.getUserById("songxl");
+        System.out.println(id);
+    }
+
+    @Test
+    public void test5(){
+        userDAO.setUserDataBase(userDataBase);
+        when(userDataBase.getUserById(Mockito.anyString())).thenReturn("songxl");
+        String id = userService.queryUserById("songxl");
         System.out.println(id);
     }
 }
