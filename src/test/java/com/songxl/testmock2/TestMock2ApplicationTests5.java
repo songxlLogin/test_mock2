@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
 import static org.mockito.Mockito.when;
 
 /**
- * 本测试用例中的service、dao 就是springboot中很常见的service调dao
+ * 测试私有方法和doAnswer的使用
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -49,7 +49,7 @@ public class TestMock2ApplicationTests5 implements Answer<String> {
     public String answer(InvocationOnMock invocation) throws Throwable {
         Object[] arguments = invocation.getArguments();
         String id = (String) arguments[0];
-        return id+":sxl";
+        return id + ":sxl";
     }
 
     @Test
@@ -80,7 +80,7 @@ public class TestMock2ApplicationTests5 implements Answer<String> {
             //所有的入参
             Object[] arguments = invocation.getArguments();
             String id = (String) arguments[0];
-            System.out.println("receive:"+id);
+            System.out.println("receive:" + id);
             return "hello";
         });
         String id = userServiceImpl.queryUserById("hi");

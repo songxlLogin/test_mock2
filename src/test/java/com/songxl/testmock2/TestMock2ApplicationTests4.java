@@ -1,6 +1,5 @@
 package com.songxl.testmock2;
 
-import com.songxl.testmock2.dao.UserDAO;
 import com.songxl.testmock2.dao.impl.UserDAOImpl;
 import com.songxl.testmock2.database.UserDataBase;
 import com.songxl.testmock2.service.UserService;
@@ -11,12 +10,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.*;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.mockito.Mockito.when;
 
 /**
+ * spy的使用
  * 本测试用例中的service、dao 就是springboot中很常见的service调dao
  */
 @RunWith(SpringRunner.class)

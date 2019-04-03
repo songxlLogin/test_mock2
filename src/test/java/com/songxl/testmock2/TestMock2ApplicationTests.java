@@ -1,5 +1,6 @@
 package com.songxl.testmock2;
 
+import com.songxl.testmock2.controller.UserController;
 import com.songxl.testmock2.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,10 +15,18 @@ public class TestMock2ApplicationTests {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserController userController;
+
     @Test
     public void contextLoads() {
         String id = userService.queryUserById("1234");
         System.out.println(id);
     }
 
+    @Test
+    public void tetController(){
+        String id = userController.getUserById("sxl");
+        System.out.println(id);
+    }
 }
