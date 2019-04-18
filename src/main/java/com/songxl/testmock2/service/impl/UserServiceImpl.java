@@ -26,8 +26,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String queryUserByName(String name) {
-        System.out.println("1.service (by name)"+name);
-        return userDAO.getUserByName(name);
+        String daoUserByName = null;
+        try {
+            System.out.println("1.service (by name)"+name);
+            daoUserByName = userDAO.getUserByName(name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return daoUserByName;
     }
 
     private String queryUserByOther(String test) {
